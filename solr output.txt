@@ -1,0 +1,468 @@
+C:\work\Software\solr-8.5.2\bin>solr restart -e cloud
+
+Welcome to the SolrCloud example!
+
+This interactive session will help you launch a SolrCloud cluster on your local workstation.
+To begin, how many Solr nodes would you like to run in your local cluster? (specify 1-4 nodes) [2]:
+2
+Ok, let's start up 2 Solr nodes for your example SolrCloud cluster.
+Please enter the port for node1 [8983]:
+
+Please enter the port for node2 [7574]:
+2
+Solr home directory C:\work\Software\solr-8.5.2\example\cloud\node1\solr already exists.
+C:\work\Software\solr-8.5.2\example\cloud\node2 already exists.
+
+Starting up Solr on port 8983 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 8983 -s "C:\work\Software\solr-8.5.2\example\cloud\node1\solr"
+
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8983
+Started Solr server on port 8983. Happy searching!
+
+Starting up Solr on port 2 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 2 -s "C:\work\Software\solr-8.5.2\example\cloud\node2\solr" -z localhost:9983
+
+ECHO is off.
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 2
+Started Solr server on port 2. Happy searching!
+INFO  - 2020-08-25 12:20:36.770; org.apache.solr.common.cloud.ConnectionManager; Waiting for client to connect to ZooKeeper
+INFO  - 2020-08-25 12:20:36.806; org.apache.solr.common.cloud.ConnectionManager; zkClient has connected
+INFO  - 2020-08-25 12:20:36.806; org.apache.solr.common.cloud.ConnectionManager; Client is connected to ZooKeeper
+INFO  - 2020-08-25 12:20:36.841; org.apache.solr.common.cloud.ZkStateReader; Updated live nodes from ZooKeeper... (0) -> (2)
+INFO  - 2020-08-25 12:20:36.868; org.apache.solr.client.solrj.impl.ZkClientClusterStateProvider; Cluster at localhost:9983 ready
+
+Now let's create a new collection for indexing documents in your 2-node cluster.
+Please provide a name for your new collection: [gettingstarted]
+techproducts
+
+Collection 'techproducts' already exists!
+Do you want to re-use the existing collection or create a new one? Enter 1 to reuse, 2 to create new [1]:
+1
+
+Enabling auto soft-commits with maxTime 3 secs using the Config API
+
+POSTing request to Config API: http://localhost:8983/solr/techproducts/config
+{"set-property":{"updateHandler.autoSoftCommit.maxTime":"3000"}}
+Successfully set-property updateHandler.autoSoftCommit.maxTime to 3000
+
+
+SolrCloud example running, please visit: http://localhost:8983/solr
+
+
+C:\work\Software\solr-8.5.2\bin>solr stop -help
+
+Usage: solr stop [-k key] [-p port] [-V]
+
+ -k key      Stop key; default is solrrocks
+
+ -p port     Specify the port the Solr HTTP listener is bound to
+
+ -all        Find and stop all running Solr servers on this host
+
+ -V/-verbose Verbose messages from this script
+
+ NOTE: To see if any Solr servers are running, do: solr status
+
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+Stopping Solr process 6684 running on port 8983
+
+Waiting for 0 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 2
+Stopping Solr process 18184 running on port 2
+STOP.PORT property must be specified with a valid port number
+
+Usage: java -jar $JETTY_HOME/start.jar [options] [properties] [configs]
+       java -jar $JETTY_HOME/start.jar --help  # for more information
+
+Waiting for 0 seconds, press a key to continue ...
+Forcefully killing process 18184
+SUCCESS: The process with PID 18184 has been terminated.
+
+C:\work\Software\solr-8.5.2\bin>solr restart -e cloud
+
+Welcome to the SolrCloud example!
+
+This interactive session will help you launch a SolrCloud cluster on your local workstation.
+To begin, how many Solr nodes would you like to run in your local cluster? (specify 1-4 nodes) [2]:
+4
+Ok, let's start up 4 Solr nodes for your example SolrCloud cluster.
+Please enter the port for node1 [8983]:
+9001
+Please enter the port for node2 [7574]:
+9002
+Please enter the port for node3 [8984]:
+9003
+Please enter the port for node4 [7575]:
+9004
+Solr home directory C:\work\Software\solr-8.5.2\example\cloud\node1\solr already exists.
+C:\work\Software\solr-8.5.2\example\cloud\node2 already exists.
+Cloning C:\work\Software\solr-8.5.2\example\cloud\node1 into
+   C:\work\Software\solr-8.5.2\example\cloud\node3
+Cloning C:\work\Software\solr-8.5.2\example\cloud\node1 into
+   C:\work\Software\solr-8.5.2\example\cloud\node4
+
+Starting up Solr on port 9001 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 9001 -s "C:\work\Software\solr-8.5.2\example\cloud\node1\solr"
+
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 9001
+
+Starting up Solr on port 9002 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 9002 -s "C:\work\Software\solr-8.5.2\example\cloud\node2\solr" -z localhost:10001
+
+Started Solr server on port 9001. Happy searching!
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 9002
+Started Solr server on port 9002. Happy searching!
+
+Starting up Solr on port 9003 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 9003 -s "C:\work\Software\solr-8.5.2\example\cloud\node3\solr" -z localhost:10001
+
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 9003
+Started Solr server on port 9003. Happy searching!
+
+Starting up Solr on port 9004 using command:
+"C:\work\Software\solr-8.5.2\bin\solr.cmd" start -cloud -p 9004 -s "C:\work\Software\solr-8.5.2\example\cloud\node4\solr" -z localhost:10001
+
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 9004
+Started Solr server on port 9004. Happy searching!
+INFO  - 2020-08-25 12:40:19.279; org.apache.solr.common.cloud.ConnectionManager; Waiting for client to connect to ZooKeeper
+INFO  - 2020-08-25 12:40:19.300; org.apache.solr.common.cloud.ConnectionManager; zkClient has connected
+INFO  - 2020-08-25 12:40:19.300; org.apache.solr.common.cloud.ConnectionManager; Client is connected to ZooKeeper
+INFO  - 2020-08-25 12:40:19.315; org.apache.solr.common.cloud.ZkStateReader; Updated live nodes from ZooKeeper... (0) -> (4)
+INFO  - 2020-08-25 12:40:19.326; org.apache.solr.client.solrj.impl.ZkClientClusterStateProvider; Cluster at localhost:10001 ready
+
+Now let's create a new collection for indexing documents in your 4-node cluster.
+Please provide a name for your new collection: [gettingstarted]
+techproducts
+
+Collection 'techproducts' already exists!
+Do you want to re-use the existing collection or create a new one? Enter 1 to reuse, 2 to create new [1]:
+1
+
+Enabling auto soft-commits with maxTime 3 secs using the Config API
+
+POSTing request to Config API: http://localhost:9001/solr/techproducts/config
+{"set-property":{"updateHandler.autoSoftCommit.maxTime":"3000"}}
+Successfully set-property updateHandler.autoSoftCommit.maxTime to 3000
+
+
+SolrCloud example running, please visit: http://localhost:9001/solr
+
+
+C:\work\Software\solr-8.5.2\bin>
+C:\work\Software\solr-8.5.2\bin>
+C:\work\Software\solr-8.5.2\bin>solr restart -help
+
+Usage: solr restart [-f] [-c] [-h hostname] [-p port] [-d directory] [-z zkHost] [-m memory] [-e example] [-s solr.solr.home] [-t solr.data.home] [-a "additional-options"] [-V]
+
+  -f            Start Solr in foreground; default starts Solr in the background
+                  and sends stdout / stderr to solr-PORT-console.log
+
+  -c or -cloud  Start Solr in SolrCloud mode; if -z not supplied and ZK_HOST not defined in
+                  solr.in.cmd, an embedded ZooKeeper instance is started on Solr port+1000,
+                  such as 9983 if Solr is bound to 8983
+
+  -h host       Specify the hostname for this Solr instance
+
+  -p port       Specify the port to start the Solr HTTP listener on; default is 8983
+"                  The specified port (SOLR_PORT) will also be used to determine the stop port"
+"                  STOP_PORT=(\$SOLR_PORT-1000) and JMX RMI listen port RMI_PORT=(\$SOLR_PORT+10000). "
+"                  For instance, if you set -p 8985, then the STOP_PORT=7985 and RMI_PORT=18985"
+
+  -d dir        Specify the Solr server directory; defaults to server
+
+  -z zkHost     Zookeeper connection string; only used when running in SolrCloud mode using -c
+                  If neither ZK_HOST is defined in solr.in.cmd nor the -z parameter is specified,
+                  an embedded ZooKeeper instance will be launched.
+
+  -m memory     Sets the min (-Xms) and max (-Xmx) heap size for the JVM, such as: -m 4g
+                  results in: -Xms4g -Xmx4g; by default, this script sets the heap size to 512m
+
+  -s dir        Sets the solr.solr.home system property; Solr will create core directories under
+                  this directory. This allows you to run multiple Solr instances on the same host
+                  while reusing the same server directory set using the -d parameter. If set, the
+                  specified directory should contain a solr.xml file, unless solr.xml exists in Zookeeper.
+                  This parameter is ignored when running examples (-e), as the solr.solr.home depends
+                  on which example is run. The default value is server/solr. If passed a relative dir
+                  validation with the current dir will be done before trying the default server/<dir>
+
+  -t dir        Sets the solr.data.home system property, where Solr will store index data in <instance_dir>/data subdirectories.
+                  If not set, Solr uses solr.solr.home for both config and data.
+
+  -e example    Name of the example to run; available examples:
+      cloud:          SolrCloud example
+      techproducts:   Comprehensive example illustrating many of Solr's core capabilities
+      dih:            Data Import Handler
+      schemaless:     Schema-less example
+
+  -a opts       Additional parameters to pass to the JVM when starting Solr, such as to setup
+                Java debug options. For example, to enable a Java debugger to attach to the Solr JVM
+                you could pass: -a "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983"
+                In most cases, you should wrap the additional parameters in double quotes.
+
+  -j opts       Additional parameters to pass to Jetty when starting Solr.
+                For example, to add configuration folder that jetty should read
+                you could pass: -j "--include-jetty-dir=/etc/jetty/custom/server/"
+                In most cases, you should wrap the additional parameters in double quotes.
+
+  -noprompt     Don't prompt for input; accept all defaults when running examples that accept user input
+
+  -v and -q     Verbose (-v) or quiet (-q) logging. Sets default log level to DEBUG or WARN instead of INFO
+
+  -V/-verbose   Verbose messages from this script
+
+
+C:\work\Software\solr-8.5.2\bin>solt start -c
+'solt' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\work\Software\solr-8.5.2\bin>solr start -c
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8983
+Started Solr server on port 8983. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr start -c p 8984
+
+Invalid command-line option: p
+
+
+Usage: solr start [-f] [-c] [-h hostname] [-p port] [-d directory] [-z zkHost] [-m memory] [-e example] [-s solr.solr.home] [-t solr.data.home] [-a "additional-options"] [-V]
+
+  -f            Start Solr in foreground; default starts Solr in the background
+                  and sends stdout / stderr to solr-PORT-console.log
+
+  -c or -cloud  Start Solr in SolrCloud mode; if -z not supplied and ZK_HOST not defined in
+                  solr.in.cmd, an embedded ZooKeeper instance is started on Solr port+1000,
+                  such as 9983 if Solr is bound to 8983
+
+  -h host       Specify the hostname for this Solr instance
+
+  -p port       Specify the port to start the Solr HTTP listener on; default is 8983
+"                  The specified port (SOLR_PORT) will also be used to determine the stop port"
+"                  STOP_PORT=(\$SOLR_PORT-1000) and JMX RMI listen port RMI_PORT=(\$SOLR_PORT+10000). "
+"                  For instance, if you set -p 8985, then the STOP_PORT=7985 and RMI_PORT=18985"
+
+  -d dir        Specify the Solr server directory; defaults to server
+
+  -z zkHost     Zookeeper connection string; only used when running in SolrCloud mode using -c
+                  If neither ZK_HOST is defined in solr.in.cmd nor the -z parameter is specified,
+                  an embedded ZooKeeper instance will be launched.
+
+  -m memory     Sets the min (-Xms) and max (-Xmx) heap size for the JVM, such as: -m 4g
+                  results in: -Xms4g -Xmx4g; by default, this script sets the heap size to 512m
+
+  -s dir        Sets the solr.solr.home system property; Solr will create core directories under
+                  this directory. This allows you to run multiple Solr instances on the same host
+                  while reusing the same server directory set using the -d parameter. If set, the
+                  specified directory should contain a solr.xml file, unless solr.xml exists in Zookeeper.
+                  This parameter is ignored when running examples (-e), as the solr.solr.home depends
+                  on which example is run. The default value is server/solr. If passed a relative dir
+                  validation with the current dir will be done before trying the default server/<dir>
+
+  -t dir        Sets the solr.data.home system property, where Solr will store index data in <instance_dir>/data subdirectories.
+                  If not set, Solr uses solr.solr.home for both config and data.
+
+  -e example    Name of the example to run; available examples:
+      cloud:          SolrCloud example
+      techproducts:   Comprehensive example illustrating many of Solr's core capabilities
+      dih:            Data Import Handler
+      schemaless:     Schema-less example
+
+  -a opts       Additional parameters to pass to the JVM when starting Solr, such as to setup
+                Java debug options. For example, to enable a Java debugger to attach to the Solr JVM
+                you could pass: -a "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=18983"
+                In most cases, you should wrap the additional parameters in double quotes.
+
+  -j opts       Additional parameters to pass to Jetty when starting Solr.
+                For example, to add configuration folder that jetty should read
+                you could pass: -j "--include-jetty-dir=/etc/jetty/custom/server/"
+                In most cases, you should wrap the additional parameters in double quotes.
+
+  -noprompt     Don't prompt for input; accept all defaults when running examples that accept user input
+
+  -v and -q     Verbose (-v) or quiet (-q) logging. Sets default log level to DEBUG or WARN instead of INFO
+
+  -V/-verbose   Verbose messages from this script
+
+
+C:\work\Software\solr-8.5.2\bin>solr start -c -p 8984
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8984
+Started Solr server on port 8984. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr start -c -p 8985
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8985
+Started Solr server on port 8985. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr create Test_8983 -p 8983
+
+ERROR: Name (-c) is a required parameter for create
+
+
+Usage: solr create [-c name] [-d confdir] [-n confname] [-shards #] [-replicationFactor #] [-p port] [-V]
+
+  Create a core or collection depending on whether Solr is running in standalone (core) or SolrCloud
+  mode (collection). In other words, this action detects which mode Solr is running in, and then takes
+  the appropriate action (either create_core or create_collection). For detailed usage instructions, do:
+
+    bin\solr create_core -help
+
+       or
+
+    bin\solr create_collection -help
+
+
+C:\work\Software\solr-8.5.2\bin>solr create - cTest_8983 -p 8983
+
+ERROR: Name (-c) is a required parameter for create
+
+
+Usage: solr create [-c name] [-d confdir] [-n confname] [-shards #] [-replicationFactor #] [-p port] [-V]
+
+  Create a core or collection depending on whether Solr is running in standalone (core) or SolrCloud
+  mode (collection). In other words, this action detects which mode Solr is running in, and then takes
+  the appropriate action (either create_core or create_collection). For detailed usage instructions, do:
+
+    bin\solr create_core -help
+
+       or
+
+    bin\solr create_collection -help
+
+
+C:\work\Software\solr-8.5.2\bin>solr create - c Test_8983 -p 8983
+
+ERROR: Name (-c) is a required parameter for create
+
+
+Usage: solr create [-c name] [-d confdir] [-n confname] [-shards #] [-replicationFactor #] [-p port] [-V]
+
+  Create a core or collection depending on whether Solr is running in standalone (core) or SolrCloud
+  mode (collection). In other words, this action detects which mode Solr is running in, and then takes
+  the appropriate action (either create_core or create_collection). For detailed usage instructions, do:
+
+    bin\solr create_core -help
+
+       or
+
+    bin\solr create_collection -help
+
+
+C:\work\Software\solr-8.5.2\bin>solr create -c Test_8983 -p 8983
+WARNING: Using _default configset with data driven schema functionality. NOT RECOMMENDED for production use.
+         To turn off: bin\solr config -c Test_8983 -p 8983 -action set-user-property -property update.autoCreateFields -value false
+Created collection 'Test_8983' with 1 shard(s), 1 replica(s) with config-set 'Test_8983'
+
+C:\work\Software\solr-8.5.2\bin>solr create -c Test_8984 -p 8984
+WARNING: Using _default configset with data driven schema functionality. NOT RECOMMENDED for production use.
+         To turn off: bin\solr config -c Test_8984 -p 8984 -action set-user-property -property update.autoCreateFields -value false
+Created collection 'Test_8984' with 1 shard(s), 1 replica(s) with config-set 'Test_8984'
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8083
+No Solr found running on port 8083
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+Stopping Solr process 18408 running on port 8983
+
+Waiting for 0 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr start -c
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8983
+Started Solr server on port 8983. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8984
+Stopping Solr process 18476 running on port 8984
+
+Waiting for 0 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr start -c -p 8984
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8984
+Started Solr server on port 8984. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8984
+Stopping Solr process 19124 running on port 8984
+
+Waiting for 0 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr start -c
+
+ERROR: Process 25392 is already listening on port 8983. If this is Solr, please stop it first before starting (or use restart). If this is not Solr, then please choose a different port using -p PORT
+
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+Stopping Solr process 25392 running on port 8983
+
+Waiting for 4 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+No Solr found running on port 8983
+
+C:\work\Software\solr-8.5.2\bin>solr start -c
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8983
+Started Solr server on port 8983. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr create -c Test_8983 -p 8983
+WARNING: Using _default configset with data driven schema functionality. NOT RECOMMENDED for production use.
+         To turn off: bin\solr config -c Test_8983 -p 8983 -action set-user-property -property update.autoCreateFields -value false
+Created collection 'Test_8983' with 1 shard(s), 1 replica(s) with config-set 'Test_8983'
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+Stopping Solr process 25380 running on port 8983
+
+Waiting for 4 seconds, press a key to continue ...
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8984
+No Solr found running on port 8984
+
+C:\work\Software\solr-8.5.2\bin>solr stop -p 8983
+No Solr found running on port 8983
+
+C:\work\Software\solr-8.5.2\bin>solr start -c
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8983
+Started Solr server on port 8983. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr start -c -p 8984
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8984
+Started Solr server on port 8984. Happy searching!
+
+C:\work\Software\solr-8.5.2\bin>solr start -cloud -s "C:\work\Software\solr-8.5.2\server\solr\Test_8983_shard1_replica_n1" -p 9005
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 9005
+
+ERROR: Solr at http://localhost:9005/solr did not come online within 30 seconds!
+
+
+C:\work\Software\solr-8.5.2\bin>solr start -cloud -s "C:\work\Software\solr-8.5.2\server\solr\Test_8983_shard1_replica_n1" -p 8987
+Could not rename log file 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log' to 'C:\work\Software\solr-8.5.2\server\logs\solr_gc.log.3' (Permission denied).
+Java HotSpot(TM) 64-Bit Server VM warning: JVM cannot use large page memory because it does not have enough privilege to lock pages in memory.
+Waiting up to 30 to see Solr running on port 8987
+
+ERROR: Solr at http://localhost:8987/solr did not come online within 30 seconds!
+
+
+C:\work\Software\solr-8.5.2\bin>
+
+
+
+

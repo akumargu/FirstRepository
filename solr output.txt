@@ -1,3 +1,5 @@
+Header added here ===============================
+
 C:\work\Software\solr-8.5.2\bin>solr restart -e cloud
 
 Welcome to the SolrCloud example!!!!----!!!!!!!!!!!!!!!!!!!!!!! kumar gupt

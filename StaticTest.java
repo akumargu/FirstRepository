@@ -1,6 +1,6 @@
 class StaticTest {
 	
-static int i1 =5;
+static int i1 =51;
 static int i2;
 
 public static void sPrintMethod (int sParam) {
